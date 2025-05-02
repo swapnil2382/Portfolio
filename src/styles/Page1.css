@@ -1,0 +1,538 @@
+.img-small {
+    width: 80%; /* Make the image width responsive */
+    height: auto; /* Keep the aspect ratio intact */
+    max-width: 600px; /* Ensure the image doesn't get too large */
+    margin-top: 20px;
+  }
+  
+  .sparkle {
+    position: relative;
+    background-color: black;
+    overflow: hidden; /* Ensure the sparkles don't go outside the box */
+  }
+ 
+  #titldiv{
+    width: fit-content;
+  }
+
+  #page1{
+    position: relative;
+  
+  }
+
+  .h-screen {
+    min-height: 100vh; /* Use min-height instead of fixed height */
+  }
+  .h1-screen {
+    min-height: 95vh; /* Use min-height instead of fixed height */
+  }
+  body {
+    overflow-y: scroll;
+  }  
+  /* Page1 Background Fixed */
+#page1 {
+  position: fixed; /* Keeps it constant as background */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-attachment: fixed; /* Enables parallax-like effect */
+  background-position: center;
+}
+
+
+/* Page2 Content */
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.bounce-text {
+  animation: bounce 2s infinite;
+}
+
+/* New container to hold both the skill layout and skill logos */
+.skill-layout-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Skill Layout Section (Main Layout) */
+.skill-layout {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: #fff;
+  height: 30rem;
+  width: 90%; /* Full-width layout */
+  gap: 7%; /* Adjusted spacing between sections */
+}
+
+/* Left Section */
+.left-section {
+  position: relative; /* Needed for pseudo-elements */
+  background: rgba(7, 7, 7, 0.1);
+  width: 35%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  gap: 10px;
+  backdrop-filter: blur(10px);
+}
+
+/* Left border in the middle */
+.left-section::before {
+  content: "";
+  position: absolute;
+  top: 75%; /* Start in the middle */
+  left: 0;
+  height: 50%; /* The height of the border (20% of the parent height) */
+  width: 0; /* No width, only the border is visible */
+  border-left: 1px solid white; /* Left border style */
+  transform: translateY(-50%); /* Center vertically */
+}
+
+/* Right border in the middle */
+.left-section::after {
+  content: "";
+  position: absolute;
+  top: 25%; /* Start in the middle */
+  right: 0;
+  height: 50%; /* The height of the border (20% of the parent height) */
+  width: 0; /* No width, only the border is visible */
+  border-right: 1px solid white; /* Right border style */
+  transform: translateY(-50%); /* Center vertically */
+}
+
+
+
+.left-section:hover {
+  border-left-color: #fbbf24;
+  border-right-color: #facc15;
+}
+
+
+/* Skill Box Style */
+.skill-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Full width of the grid column */
+  height: 100%; /* Full height of the grid cell */
+  padding: 15px;
+  border: 2px solid #f59e0b; /* Border color */
+  border-radius: 12px; /* Rounded corners */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #5d5d66, #070708); /* Subtle gradient */
+  color: white; /* Text color */
+  text-align: center; /* Center the text */
+  font-size: 1.2rem; /* Slightly larger text */
+  font-weight: bold; /* Bold text for emphasis */
+}
+
+/* Hover Effect */
+.skill-box:hover {
+  background: linear-gradient(135deg, #774c01, #cd8302); /* Highlight effect */
+  color: #fdfafa; /* Change text color on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+
+/* Right Section */
+.right-section {
+  width: 60%;
+  height: 100%;
+  background: rgba(7, 7, 7, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* Skill Box Active Class */
+.skill-box.active {
+  background: #ecb55547;
+}
+
+
+
+/* Skill Details Section */
+.skill-details {
+  padding: 20px;
+  color: #fff;
+}
+
+.skill-details h3 {
+  margin-bottom: 20px;
+}
+
+.skill-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skill-details li {
+  margin-bottom: 10px;
+  background:  rgba(7, 7, 7, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Progress Bar Styles */
+.progress-bar {
+  background: #3c3c4b;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 8px;
+  margin-top: 5px;
+  position: relative;
+}
+
+.progress-bar-fill {
+  background: #ac7d2c; /* Active color for the progress fill */
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: 5px;
+}
+
+
+.skill-logos-container {
+  width: 10%; /* 10% width for the new div */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end ; /* Space logos evenly */
+  align-items: center;
+  gap: 50px;
+  margin-top: 5%;
+}
+
+/* Circle Style for the skill logos with glowing border */
+.skill-logos-container {
+  width: 10%; /* 10% width for the new div */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end ; /* Space logos evenly */
+  align-items: center;
+  gap: 50px;
+  margin-top: 5%;
+}
+
+/* Circle Style for the skill logos with glowing border */
+.skill-logo {
+  width: 50px; /* Circle width */
+  height: 50px; /* Circle height */
+  border-radius: 50%; /* Makes the div a circle */
+  background-size: cover; /* Ensures the image fits the circle */
+  background-position: center; /* Centers the background image */
+  border: 2px solid #f59e0b; /* Optional: Adds border around the circle */
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.5), 0 0 20px rgba(245, 158, 11, 0.5); /* Dim glow by default */
+  animation: glowEffect 0.5s infinite alternate; /* Apply glowing animation */
+}
+
+@keyframes glowEffect {
+  0% {
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.5), 0 0 1px rgba(245, 158, 11, 0.5); /* Dim glow */
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(245, 158, 11, 1), 0 0 1px rgba(245, 158, 11, 1); /* Bright glow */
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  #page1 {
+    background-size: contain;
+  }
+  #page2 {
+    background-size: contain;
+  }
+  #homecon{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    padding-left: 2px;
+  }
+  #titltdiv{
+    order: 2;
+    
+  }
+  #page1img {
+    order: 1; /* This works for flexbox layout */
+    width: 20rem; /* Adjust the width */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0;
+    padding: 0;
+    margin-left: 2px;
+    margin-top: -5rem; 
+  }
+  
+  #headerlogo{
+    height: 5rem;
+    width: auto;
+  }
+  #titltdiv1{
+    padding: 0px;
+    padding-top: 10px;
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+  #titltdiv2{
+  
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+  #titltdiv3{
+    font-size: 0.8rem;
+    padding: 0px;
+  }
+  
+  #page1foot{
+    padding-left: 20%;
+    padding-top: 7rem;
+        gap: 1rem;
+  }
+  #page1footimg{
+    width: 20%;
+    height: 20%;
+  }
+  #page2text{
+    width: 80%;
+    border-radius: 50%;
+  }
+  .fade-in-slide-right {
+    /* Disable animation for mobile */
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    transition: none !important; /* Disable transition */
+  }
+  #page2img{
+    width: 40vh;
+    height: auto;
+    box-shadow: none;
+      transform: none !important; /* Remove any transformations */
+      transition: none !important; /* Prevent transition effects */
+      animation: none !important; 
+  }
+  .fade-in-slide-left {
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  #page2img2{
+    box-shadow: none;
+  }
+  #page2text {
+    display: block;
+    width: 90vw; /* Ensure full width on mobile */
+    max-width: none; /* Remove inherited limits */
+   padding-left: 5%;
+    margin: 0;
+  }
+  
+  #page2text h1 {
+    font-size: 6vw; /* Adjust title size for mobile */
+  }
+  
+  #page2text p {
+    font-size: 4vw; /* Adjust font size for mobile */
+    margin: 0; /* Remove default browser margins */
+    padding: 0; /* Remove any padding */
+    width: 100%; /* Ensure it spans the full width of the parent */
+  }
+  #page2text li {
+    display: flex;
+    flex-direction: column; /* Stack icon and tag vertically */
+    align-items: center; /* Align the content centrally */
+    text-align: center; /* Center the text */
+    margin-bottom: 1rem; /* Add spacing between list items */
+  }
+
+  #page2texticon {
+    font-size: 1.5rem; /* Adjust icon size for mobile */
+    margin-bottom: 0.5rem; /* Add space between icon and tag */
+  }
+
+  #page2texttag {
+    font-size: 1rem; /* Adjust the tag font size for mobile */
+    margin-bottom: 0.5rem; /* Add space between tag and text */
+  }
+
+  #page2texttext {
+    font-size: 0.9rem; /* Adjust text font size for mobile */
+    margin-top: 0.5rem; /* Space between the tag and text */
+  }
+
+  /* List section */
+  ul {
+    margin-top: 1rem;
+    padding: 0;
+  }
+
+  ul li {
+    font-size: 4vw; /* Adjust list item text for mobile */
+    padding: 10px 16px;
+    flex-direction: column; /* Stack the items vertically */
+    align-items: flex-start;
+  }
+
+  ul li .text-xl {
+    font-size: 2rem; /* Adjust icon size for mobile */
+    margin-bottom: 8px; /* Add some spacing between icon and text */
+  }
+
+  ul li .font-semibold {
+    font-size: 3.5vw; /* Adjust label text for mobile */
+  }
+
+  ul li span.text-gray-700 {
+    font-size: 3.5vw; /* Adjust value text for mobile */
+  }
+
+   /* Adjust the Skill Layout container */
+   .skill-layout {
+    flex-direction: column; /* Stack sections vertically */
+    height: auto; /* Adjust height to fit content */
+    gap: 2px; /* Remove gap */
+    margin: 0px;
+  }
+
+  /* Adjust the Left Section (Skill Box Container) */
+.left-section {
+  width: 100%; /* Full width */
+  height: auto; /* Adjust height to fit content */
+  display: grid; /* Use grid for 2 rows */
+  grid-template-columns: repeat(2, 1fr); /* 2 columns in the grid */
+  gap: 10px; /* Space between grid items */
+  justify-items: center; /* Center align the boxes */
+}
+
+  /* Skill Box Style adjustments */
+  .skill-box {
+    width: 100%; /* Make each skill box 1/4 width */
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 500; /* Slightly reduce text size */
+  }
+
+  /* Skill Box Active Class adjustments */
+  .skill-box.active {
+    background: #ecb55547;
+  }
+
+  /* Adjust the Right Section (Skill Detail Section) */
+  .right-section {
+    width: 100%; /* Full width */
+    height: auto; /* Adjust height to fit content */
+    padding: 15px;
+  }
+
+  /* Skill Logos Container (show logos in one row) */
+  .skill-logos-container {
+    width: 90%; /* Full width */
+    height: auto; /* Adjust height to fit content */
+    display: flex;
+    justify-content: space-evenly; /* Logos in one row */
+    align-items: center;
+    gap: 10px;
+    margin-top: 40%;
+    margin-left: 1%;
+  }
+
+  /* Circle Style for the skill logos */
+  .skill-logo {
+    width: 40px; /* Adjust logo size */
+    height: 40px; /* Adjust logo size */
+    margin: 5px;
+  }
+
+  /* Adjust Progress Bar Styles for better visibility in mobile view */
+  .progress-bar {
+    height: 6px;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    transition: width 0.3s ease;
+    border-radius: 5px;
+  }
+
+  #project-box{
+    width: 250px;
+    height: 550px;
+  }
+
+  #projects-wrapper{
+    height: max-content;
+  }
+  #page4-container{
+    height: 90%;
+  }
+  #left-arrow,
+  #right-arrow {
+    width: 18px;
+    border-radius: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+ #personalh12, 
+ #personalh13,
+ #personalh15 {
+  font-size: 1.8rem;
+ }
+ #personalh11,
+ #personalh14 {
+  font-size: 1.3rem;
+  padding: 1.3rem;
+ }
+ 
+ #exh1{
+  font-size: 1rem;
+}
+#exmain{
+  padding-top: 0px;
+}
+#contactmain{
+  width: 100%;
+}
+}
+
+
+
+
+@media (max-width: 480px) {
+  .skill-box {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  /* Adjust the skill details heading for small screens */
+  .skill-details h3 {
+    font-size: 1.5rem;
+  }
+
+  .progress-bar {
+    height: 6px;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+  }
+}

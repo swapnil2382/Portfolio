@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://swapnil2382.github.io/Portfolio", 
+  "homepage": "https://swapnil2382.github.io/Portfolio",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -14,9 +14,12 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.5",
+    "framer-motion": "^12.9.4",
     "gsap": "^3.13.0",
+    "lucide-react": "^0.506.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
