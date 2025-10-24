@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FaReact, FaAws, FaJava, FaDatabase, FaUserShield, FaTrophy } from "react-icons/fa";
+import { FaReact, FaAws, FaJava, FaDatabase, FaUserShield, FaTrophy, FaCode } from "react-icons/fa";
+import { FaLayerGroup } from "react-icons/fa6";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { ExternalLink } from "lucide-react";
 import { SiUdemy } from "react-icons/si";
@@ -67,7 +68,7 @@ const ExperiencePage = () => {
       period: "Rainy 2023",
       company: "Prodigy InfoTech",
       description: "Developed responsive web applications using React, Node.js, and MongoDB. Collaborated with UX designers to implement intuitive user interfaces and optimize application performance.",
-      icon: <FaReact size={40} className="text-amber-400" />,
+icon: <FaCode size={40} className="text-white" />,
       achievements: ["Increased page load performance by 40%", "Implemented CI/CD pipeline", "Created reusable component library"],
     },
     {
@@ -75,9 +76,24 @@ const ExperiencePage = () => {
       period: "Winter 2023",
       company: "Octanet",
       description: "Created interactive UI components and optimized website performance. Collaborated in an Agile team environment to deliver high-quality features on schedule.",
-      icon: <FaReact size={40} className="text-amber-500" />,
+      icon: <FaReact size={40} className="text-white" />,
       achievements: ["Built 5+ responsive web pages", "Reduced CSS bundle size by 30%", "Integrated multiple third-party APIs"],
     },
+
+ {
+  title: "MERN-Stack Developer Intern",
+  period: "3 months",
+  company: "UD Studios",
+  description:
+    "Built and deployed full-stack web applications using MongoDB, Express, React, and Node.js. Worked on both client and server-side logic to deliver efficient, scalable, and user-friendly solutions. Collaborated with the design and backend teams in an Agile environment to ensure seamless integration and optimal performance across the stack.",
+  icon: <FaLayerGroup size={40} className="text-white" />,
+  achievements: [
+    "Developed RESTful APIs using Express and integrated them with React front-end",
+    "Implemented user authentication and authorization with JWT and bcrypt",
+    "Designed and managed MongoDB schemas for optimized data handling",
+  ],
+},
+
   ];
 
   const certificates = [

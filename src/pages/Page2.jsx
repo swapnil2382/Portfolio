@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Code, Briefcase, Zap, Sparkles } from 'lucide-react';
-import Profileimg from '../components/swapnilprofilepic.jpg';
+import Profileimg from '../components/swapnil_SD_Codehub.jpg';
 
 const AboutPage = () => {
   // For parallax effects
