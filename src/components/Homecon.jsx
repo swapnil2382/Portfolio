@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { CloudDownload, Sparkles } from "lucide-react";
-import resumePDF from "../components/Swapnil resume final.pdf";
+import resumePDF from "../components/Swapnil resume final2.pdf";
 import avatar from "../assets/avatar-removebg-preview.png";
 
 const Homecon = () => {

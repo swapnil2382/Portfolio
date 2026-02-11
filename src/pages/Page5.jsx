@@ -24,7 +24,7 @@ gsap.registerPlugin(ScrollTrigger);
 const useGsapAnimations = () => {
   useEffect(() => {
     const elements = document.querySelectorAll(".gsap-animate");
-    
+
     elements.forEach((el, index) => {
       gsap.fromTo(
         el,
@@ -43,7 +43,7 @@ const useGsapAnimations = () => {
         }
       );
     });
-    
+
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
@@ -51,7 +51,7 @@ const useGsapAnimations = () => {
 };
 
 const ExperiencePage = () => {
-  const [selectedTab, setSelectedTab] = useState("Certificates");
+  const [selectedTab, setSelectedTab] = useState("Experience");
   const [popupData, setPopupData] = useState(null);
   const [currentCertificateSlide, setCurrentCertificateSlide] = useState(0);
   const [currentExperienceSlide, setCurrentExperienceSlide] = useState(0);
@@ -68,31 +68,31 @@ const ExperiencePage = () => {
       period: "Rainy 2023",
       company: "Prodigy InfoTech",
       description: "Developed responsive web applications using React, Node.js, and MongoDB. Collaborated with UX designers to implement intuitive user interfaces and optimize application performance.",
-icon: <FaCode size={40} className="text-white" />,
+      icon: <FaCode size={40} className="text-white" />,
       achievements: ["Increased page load performance by 40%", "Implemented CI/CD pipeline", "Created reusable component library"],
     },
+
     {
-      title: "Front-End Developer Intern",
-      period: "Winter 2023",
-      company: "Octanet",
+      title: "MERN-Stack Developer Intern",
+      period: "3 months",
+      company: "UD Studios",
+      description:
+        "Built and deployed full-stack web applications using MongoDB, Express, React, and Node.js. Worked on both client and server-side logic to deliver efficient, scalable, and user-friendly solutions. Collaborated with the design and backend teams in an Agile environment to ensure seamless integration and optimal performance across the stack.",
+      icon: <FaLayerGroup size={40} className="text-white" />,
+      achievements: [
+        "Developed RESTful APIs using Express and integrated them with React front-end",
+        "Implemented user authentication and authorization with JWT and bcrypt",
+        "Designed and managed MongoDB schemas for optimized data handling",
+      ],
+    },
+    {
+      title: "MERN-Stack Developer Intern(Pursuing)",
+      period: "Winter 2025",
+      company: "KalkiDigital",
       description: "Created interactive UI components and optimized website performance. Collaborated in an Agile team environment to deliver high-quality features on schedule.",
       icon: <FaReact size={40} className="text-white" />,
-      achievements: ["Built 5+ responsive web pages", "Reduced CSS bundle size by 30%", "Integrated multiple third-party APIs"],
+      achievements: ["Built 15+ responsive web pages", "Reduced CSS bundle size by 50%", "Integrated multiple third-party APIs and AI services"],
     },
-
- {
-  title: "MERN-Stack Developer Intern",
-  period: "3 months",
-  company: "UD Studios",
-  description:
-    "Built and deployed full-stack web applications using MongoDB, Express, React, and Node.js. Worked on both client and server-side logic to deliver efficient, scalable, and user-friendly solutions. Collaborated with the design and backend teams in an Agile environment to ensure seamless integration and optimal performance across the stack.",
-  icon: <FaLayerGroup size={40} className="text-white" />,
-  achievements: [
-    "Developed RESTful APIs using Express and integrated them with React front-end",
-    "Implemented user authentication and authorization with JWT and bcrypt",
-    "Designed and managed MongoDB schemas for optimized data handling",
-  ],
-},
 
   ];
 
@@ -232,11 +232,10 @@ icon: <FaCode size={40} className="text-white" />,
   // Tab button component
   const TabButton = ({ label, isActive, onClick }) => (
     <motion.button
-      className={`px-6 py-3 text-sm font-medium rounded-full transition-all duration-300 ${
-        isActive
-          ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white shadow-lg shadow-amber-500/30"
-          : "bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 backdrop-blur-sm"
-      }`}
+      className={`px-6 py-3 text-sm font-medium rounded-full transition-all duration-300 ${isActive
+        ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white shadow-lg shadow-amber-500/30"
+        : "bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 backdrop-blur-sm"
+        }`}
       onClick={onClick}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
@@ -351,7 +350,7 @@ icon: <FaCode size={40} className="text-white" />,
         {/* Sticky Tab Navigation */}
         <div className="top-0 z-10 backdrop-blur-sm py-4 mb-12 gsap-animate">
           <div className="flex justify-center flex-wrap gap-4">
-            {["Certificates", "Experience", "Courses"].map((tab) => (
+            {["Experience" , "Certificates", "Courses"].map((tab) => (
               <TabButton
                 key={tab}
                 label={tab}
@@ -385,11 +384,10 @@ icon: <FaCode size={40} className="text-white" />,
                 {/* Navigation Controls */}
                 <div className="hidden md:flex justify-center mt-10 items-center gap-6">
                   <motion.button
-                    className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                      currentCertificateSlide > 0
-                        ? "bg-amber-500 text-white hover:bg-amber-600"
-                        : "bg-slate-800/50 text-slate-600 cursor-not-allowed"
-                    }`}
+                    className={`w-12 h-12 rounded-full flex items-center justify-center ${currentCertificateSlide > 0
+                      ? "bg-amber-500 text-white hover:bg-amber-600"
+                      : "bg-slate-800/50 text-slate-600 cursor-not-allowed"
+                      }`}
                     onClick={handlePrevCertificateSlide}
                     disabled={currentCertificateSlide === 0}
                     whileHover={currentCertificateSlide > 0 ? { scale: 1.1 } : {}}
@@ -403,20 +401,18 @@ icon: <FaCode size={40} className="text-white" />,
                       <button
                         key={idx}
                         onClick={() => setCurrentCertificateSlide(idx * 3)}
-                        className={`w-3 h-3 rounded-full transition-all ${
-                          currentCertificateSlide / 3 === idx ? "bg-amber-500 w-8" : "bg-slate-700 hover:bg-slate-600"
-                        }`}
+                        className={`w-3 h-3 rounded-full transition-all ${currentCertificateSlide / 3 === idx ? "bg-amber-500 w-8" : "bg-slate-700 hover:bg-slate-600"
+                          }`}
                         aria-label={`Go to certificate slide ${idx + 1}`}
                       />
                     ))}
                   </div>
 
                   <motion.button
-                    className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                      currentCertificateSlide < certificates.length - 3
-                        ? "bg-amber-500 text-white hover:bg-amber-600"
-                        : "bg-slate-800/50 text-slate-600 cursor-not-allowed"
-                    }`}
+                    className={`w-12 h-12 rounded-full flex items-center justify-center ${currentCertificateSlide < certificates.length - 3
+                      ? "bg-amber-500 text-white hover:bg-amber-600"
+                      : "bg-slate-800/50 text-slate-600 cursor-not-allowed"
+                      }`}
                     onClick={handleNextCertificateSlide}
                     disabled={currentCertificateSlide >= certificates.length - 3}
                     whileHover={currentCertificateSlide < certificates.length - 3 ? { scale: 1.1 } : {}}
@@ -448,11 +444,10 @@ icon: <FaCode size={40} className="text-white" />,
                 {/* Navigation Controls */}
                 <div className="hidden md:flex justify-center mt-10 items-center gap-6">
                   <motion.button
-                    className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                      currentExperienceSlide > 0
-                        ? "bg-amber-500 text-white hover:bg-amber-600"
-                        : "bg-slate-800/50 text-slate-600 cursor-not-allowed"
-                    }`}
+                    className={`w-12 h-12 rounded-full flex items-center justify-center ${currentExperienceSlide > 0
+                      ? "bg-amber-500 text-white hover:bg-amber-600"
+                      : "bg-slate-800/50 text-slate-600 cursor-not-allowed"
+                      }`}
                     onClick={handlePrevExperienceSlide}
                     disabled={currentExperienceSlide === 0}
                     whileHover={currentExperienceSlide > 0 ? { scale: 1.1 } : {}}
@@ -466,20 +461,18 @@ icon: <FaCode size={40} className="text-white" />,
                       <button
                         key={idx}
                         onClick={() => setCurrentExperienceSlide(idx * 3)}
-                        className={`w-3 h-3 rounded-full transition-all ${
-                          currentExperienceSlide / 3 === idx ? "bg-amber-500 w-8" : "bg-slate-700 hover:bg-slate-600"
-                        }`}
+                        className={`w-3 h-3 rounded-full transition-all ${currentExperienceSlide / 3 === idx ? "bg-amber-500 w-8" : "bg-slate-700 hover:bg-slate-600"
+                          }`}
                         aria-label={`Go to experience slide ${idx + 1}`}
                       />
                     ))}
                   </div>
 
                   <motion.button
-                    className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                      currentExperienceSlide < experiences.length - 3
-                        ? "bg-amber-500 text-white hover:bg-amber-600"
-                        : "bg-slate-800/50 text-slate-600 cursor-not-allowed"
-                    }`}
+                    className={`w-12 h-12 rounded-full flex items-center justify-center ${currentExperienceSlide < experiences.length - 3
+                      ? "bg-amber-500 text-white hover:bg-amber-600"
+                      : "bg-slate-800/50 text-slate-600 cursor-not-allowed"
+                      }`}
                     onClick={handleNextExperienceSlide}
                     disabled={currentExperienceSlide >= experiences.length - 3}
                     whileHover={currentExperienceSlide < experiences.length - 3 ? { scale: 1.1 } : {}}
@@ -511,11 +504,10 @@ icon: <FaCode size={40} className="text-white" />,
                 {/* Navigation Controls */}
                 <div className="hidden md:flex justify-center mt-10 items-center gap-6">
                   <motion.button
-                    className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                      currentCourseSlide > 0
-                        ? "bg-amber-500 text-white hover:bg-amber-600"
-                        : "bg-slate-800/50 text-slate-600 cursor-not-allowed"
-                    }`}
+                    className={`w-12 h-12 rounded-full flex items-center justify-center ${currentCourseSlide > 0
+                      ? "bg-amber-500 text-white hover:bg-amber-600"
+                      : "bg-slate-800/50 text-slate-600 cursor-not-allowed"
+                      }`}
                     onClick={handlePrevCourseSlide}
                     disabled={currentCourseSlide === 0}
                     whileHover={currentCourseSlide > 0 ? { scale: 1.1 } : {}}
@@ -529,20 +521,18 @@ icon: <FaCode size={40} className="text-white" />,
                       <button
                         key={idx}
                         onClick={() => setCurrentCourseSlide(idx * 3)}
-                        className={`w-3 h-3 rounded-full transition-all ${
-                          currentCourseSlide / 3 === idx ? "bg-amber-500 w-8" : "bg-slate-700 hover:bg-slate-600"
-                        }`}
+                        className={`w-3 h-3 rounded-full transition-all ${currentCourseSlide / 3 === idx ? "bg-amber-500 w-8" : "bg-slate-700 hover:bg-slate-600"
+                          }`}
                         aria-label={`Go to course slide ${idx + 1}`}
                       />
                     ))}
                   </div>
 
                   <motion.button
-                    className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                      currentCourseSlide < courses.length - 3
-                        ? "bg-amber-500 text-white hover:bg-amber-600"
-                        : "bg-slate-800/50 text-slate-600 cursor-not-allowed"
-                    }`}
+                    className={`w-12 h-12 rounded-full flex items-center justify-center ${currentCourseSlide < courses.length - 3
+                      ? "bg-amber-500 text-white hover:bg-amber-600"
+                      : "bg-slate-800/50 text-slate-600 cursor-not-allowed"
+                      }`}
                     onClick={handleNextCourseSlide}
                     disabled={currentCourseSlide >= courses.length - 3}
                     whileHover={currentCourseSlide < courses.length - 3 ? { scale: 1.1 } : {}}

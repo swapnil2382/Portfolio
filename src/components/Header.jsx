@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaBars } from "react-icons/fa";
+import navimg from "../assets/image.png";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -26,7 +27,7 @@ const Header = () => {
       <div className="flex items-center">
         <a href="#home">
           <img
-            src="https://us.123rf.com/450wm/mamun25g/mamun25g2007/mamun25g200701134/151666985-s-letter-logo-design-letter-s-design-s-logo.jpg"
+            src={navimg}
             alt="S Logo"
             className="h-14 w-14 object-contain cursor-pointer rounded-full transition-all duration-300 hover:animate-wobble"
           />
