@@ -1,1 +1,219 @@
 @import "tailwindcss";
+
+/* ==========================================================================
+   DESIGN TOKENS
+   Deep graphite base, subtle navy lift, one controlled amber accent.
+   Amber is reserved for active states, CTAs and selected nodes — never for
+   decorating every heading.
+   ========================================================================== */
+:root {
+  /* surfaces, darkest to lightest */
+  --bg-0: #050607;
+  --bg-1: #0a0c10;
+  --bg-2: #0f1218;
+  --bg-3: #151a22;
+
+  /* navy lift used behind hero and feature blocks */
+  --navy: #0b1220;
+
+  /* accent */
+  --accent: #f0b429;
+  --accent-soft: rgba(240, 180, 41, 0.14);
+  --accent-line: rgba(240, 180, 41, 0.32);
+
+  /* type */
+  --text-0: #f4f6f8;
+  --text-1: #a8b2c1;
+  --text-2: #6b7688;
+  --text-3: #414b5a;
+
+  /* hairlines */
+  --line: rgba(148, 163, 184, 0.1);
+  --line-strong: rgba(148, 163, 184, 0.18);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+body {
+  background-color: var(--bg-0);
+  color: var(--text-0);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent);
+  color: #0a0c10;
+}
+
+/* ---------- typography helpers ---------- */
+.mono {
+  font-family: var(--font-mono);
+  font-feature-settings: "calt" 0;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+.display {
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+/* ---------- surfaces ---------- */
+.panel {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.panel-raised {
+  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.glass {
+  background: rgba(10, 12, 16, 0.72);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid var(--line-strong);
+}
+
+/* Hairline grid — the only ambient decoration, kept very faint */
+.tech-grid {
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 80% 55% at 50% 40%, #000 20%, transparent 95%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 55% at 50% 40%, #000 20%, transparent 95%);
+}
+
+/* ---------- focus ---------- */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- status dot ---------- */
+@keyframes pulse-ring {
+  0% { transform: scale(0.85); opacity: 0.8; }
+  70% { transform: scale(2.2); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.status-dot {
+  position: relative;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: #4ade80;
+}
+
+.status-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: #4ade80;
+  animation: pulse-ring 2.4s var(--ease) infinite;
+}
+
+/* ---------- skill graph ---------- */
+/* Dashes drift along every spoke so the graph reads as a live system at rest,
+   not a static diagram waiting to be hovered. */
+@keyframes edge-flow {
+  to { stroke-dashoffset: -24; }
+}
+
+.edge-flow {
+  stroke-dasharray: 3 9;
+  animation: edge-flow 2.4s linear infinite;
+}
+
+@keyframes node-breathe {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.35); }
+}
+
+.node-halo {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: node-breathe 3.2s var(--ease) infinite;
+}
+
+@keyframes core-spin {
+  to { transform: rotate(360deg); }
+}
+
+.core-ring {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: core-spin 24s linear infinite;
+}
+
+/* ---------- marquee ---------- */
+@keyframes marquee-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 42s linear infinite;
+  will-change: transform;
+}
+
+/* ---------- scrollbar ---------- */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-0); }
+::-webkit-scrollbar-thumb {
+  background: var(--bg-3);
+  border-radius: 9999px;
+  border: 2px solid var(--bg-0);
+}
+::-webkit-scrollbar-thumb:hover { background: #222a35; }
+
+/* Hide the native cursor only where the custom one is active */
+.custom-cursor-active,
+.custom-cursor-active * {
+  cursor: none !important;
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track { animation: none; }
+  .status-dot::after { animation: none; }
+  .edge-flow,
+  .node-halo,
+  .core-ring { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,35 +1,37 @@
-import React from "react";
-import Header from "./components/Header";
-import Page1 from "./pages/Page1";
-import Page2 from "./pages/Page2";
-import Page3 from "./pages/Page3";
-import Page4 from "./pages/Page4";
-import Page5 from "./pages/Page5";
-import Page6 from "./pages/Page6";
-import CustomCursor from "./components/CustomCursor";
+import React, { useState } from "react";
+import Navbar from "./components/navigation/Navbar";
+import CommandPalette from "./components/navigation/CommandPalette";
+import Cursor from "./components/navigation/Cursor";
+import Hero from "./components/hero/Hero";
+import About from "./components/about/About";
+import Skills from "./components/skills/Skills";
+import Experience from "./components/experience/Experience";
+import Projects from "./components/projects/Projects";
+import Education from "./components/education/Education";
+import Contact from "./components/contact/Contact";
+import Footer from "./components/contact/Footer";
 
 const App = () => {
+  const [paletteOpen, setPaletteOpen] = useState(false);
+
   return (
-    <div className="w-full relative">
-      {/* Custom Cursor */}
-      <CustomCursor />
+    <>
+      <Cursor />
+      <Navbar onOpenPalette={() => setPaletteOpen(true)} />
+      <CommandPalette open={paletteOpen} setOpen={setPaletteOpen} />
 
-      {/* Header */}
-      <Header />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Education />
+        <Contact />
+      </main>
 
-      {/* Pages */}
-      <div className="w-full">
-        
-        <Page1 />
-        <div id="page2">
-          <Page2 />
-        </div>
-        <Page3 />
-        <Page5 />
-        <Page4 />
-        <Page6 />
-      </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 
